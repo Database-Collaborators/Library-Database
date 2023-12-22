@@ -1,5 +1,6 @@
 SET SEARCH_PATH = Library;
 
+
 --Clients Table
 INSERT INTO Clients (ClientEmail, FirstName, LastName, Password) VALUES ('john.doe@gmail.com', 'John', 'Doe', 'tTZR52Uy=3^G7Yr)');
 INSERT INTO Clients (ClientEmail, FirstName, LastName, Password) VALUES ('alex.jones@email.com', 'Alex', 'Jones', 'rg,~Q}_4A6eV8x;*[d');
@@ -22,6 +23,14 @@ INSERT INTO Books (Title, PublishedDate, CopiesAvailable) VALUES ('The Talisman'
 INSERT INTO Books (Title, PublishedDate, CopiesAvailable) VALUES ('The Shining', '1977-01-28', 6);
 INSERT INTO Books (Title, CopiesAvailable) VALUES ('To Kill a Mockingbird', 1);
 INSERT INTO Books (Title, CopiesAvailable) VALUES ('Bible', 12);
+INSERT INTO Books (Title, CopiesAvailable) VALUES ('The Adventures of Sherlock Holmes', 6);
+INSERT INTO Books (Title, CopiesAvailable) VALUES ('Woe from Wit', 3);
+INSERT INTO Books (Title, CopiesAvailable) VALUES ('The Lost World', 3);
+INSERT INTO Books (Title, CopiesAvailable) VALUES ('A General Introduction to Psychoanalysis', 2);
+INSERT INTO Books (Title, PublishedDate, CopiesAvailable) VALUES ('A Summer in the Red Scarf', '2021-08-15', 8);
+INSERT INTO Books (Title, PublishedDate, CopiesAvailable) VALUES ('What Is The Swallow Silent About', '2022-08-15', 6);
+INSERT INTO Books (Title, PublishedDate, CopiesAvailable) VALUES ('The Doings of Raffles Haw', '1891-01-01', 3);
+INSERT INTO Books (Title, PublishedDate, CopiesAvailable) VALUES ('The Complete Sherlock Holmes', '1991-12-02', 1);
 
 
 --Authors Table
@@ -35,6 +44,11 @@ INSERT INTO Authors (FirstName, LastName, BirthDate) VALUES ('Peter', 'Straub', 
 INSERT INTO Authors (FirstName, BirthDate) VALUES ('Dan', '1964-06-22');
 INSERT INTO Authors (FirstName, LastName) VALUES ('George', 'Orwell');
 INSERT INTO Authors DEFAULT VALUES;
+INSERT INTO Authors (FirstName, LastName, BirthDate) VALUES ('Arthur Conan', 'Doyle', '1859-05-22');
+INSERT INTO Authors (FirstName, LastName, BirthDate) VALUES ('Alexandre', 'Griboyedov', '1795-01-15');
+INSERT INTO Authors (FirstName, LastName, BirthDate) VALUES ('Sigmund', 'Freud', '1856-05-06');
+INSERT INTO Authors (FirstName, LastName, BirthDate) VALUES ('Katerina', 'Silvanova', '1992-05-16');
+INSERT INTO Authors (FirstName, LastName, BirthDate) VALUES ('Elena', 'Malisova', '1986-05-18');
 
 
 --Genres Table
@@ -46,6 +60,11 @@ INSERT INTO Genres (GenreName) VALUES ('Mystery');
 INSERT INTO Genres (GenreName) VALUES ('Horror');
 INSERT INTO Genres (GenreName) VALUES ('Religion');
 INSERT INTO Genres (GenreName) VALUES ('History');
+INSERT INTO Genres (GenreName) VALUES ('Detective');
+INSERT INTO Genres (GenreName) VALUES ('Comedy');
+INSERT INTO Genres (GenreName) VALUES ('Science fiction');
+INSERT INTO Genres (GenreName) VALUES ('Philosophy');
+
 
 --Books_X_Authors Table
 --Linking books to authors:
@@ -63,6 +82,16 @@ INSERT INTO Books_X_Authors (BookID, AuthorID) VALUES (10, 7);
 INSERT INTO Books_X_Authors (BookID, AuthorID) VALUES (11, 6);
 INSERT INTO Books_X_Authors (BookID, AuthorID) VALUES (12, 1);
 INSERT INTO Books_X_Authors (BookID, AuthorID) VALUES (13, 10);
+INSERT INTO Books_X_Authors (BookID, AuthorID) VALUES (14, 11);
+INSERT INTO Books_X_Authors (BookID, AuthorID) VALUES (15, 12);
+INSERT INTO Books_X_Authors (BookID, AuthorID) VALUES (16, 11);
+INSERT INTO Books_X_Authors (BookID, AuthorID) VALUES (17, 13);
+INSERT INTO Books_X_Authors (BookID, AuthorID) VALUES (18, 14);
+INSERT INTO Books_X_Authors (BookID, AuthorID) VALUES (18, 15);
+INSERT INTO Books_X_Authors (BookID, AuthorID) VALUES (19, 15);
+INSERT INTO Books_X_Authors (BookID, AuthorID) VALUES (19, 14);
+INSERT INTO Books_X_Authors (BookID, AuthorID) VALUES (20, 11);
+INSERT INTO Books_X_Authors (BookID, AuthorID) VALUES (21, 11);
 
 
 --Books_X_Genres Table
@@ -81,6 +110,14 @@ INSERT INTO Books_X_Genres (BookID, GenreID) VALUES (11, 6);
 INSERT INTO Books_X_Genres (BookID, GenreID) VALUES (12, 2);
 INSERT INTO Books_X_Genres (BookID, GenreID) VALUES (13, 7);
 INSERT INTO Books_X_Genres (BookID, GenreID) VALUES (13, 8);
+INSERT INTO Books_X_Genres (BookID, GenreID) VALUES (14, 9);
+INSERT INTO Books_X_Genres (BookID, GenreID) VALUES (15, 10);
+INSERT INTO Books_X_Genres (BookID, GenreID) VALUES (16, 11);
+INSERT INTO Books_X_Genres (BookID, GenreID) VALUES (17, 12);
+INSERT INTO Books_X_Genres (BookID, GenreID) VALUES (18, 2);
+INSERT INTO Books_X_Genres (BookID, GenreID) VALUES (19, 3);
+INSERT INTO Books_X_Genres (BookID, GenreID) VALUES (20, 2);
+INSERT INTO Books_X_Genres (BookID, GenreID) VALUES (21, 9);
 
 
 --Transactions Table
@@ -111,6 +148,7 @@ INSERT INTO Reviews (BookID, ClientEmail, Rating, Comment) VALUES (2, 'jane.smit
 INSERT INTO Reviews (BookID, ClientEmail, Rating, Comment) VALUES (4, 'lisa.white@email.com', 6, 'Interesting read.');
 INSERT INTO Reviews (BookID, ClientEmail, Rating, Comment) VALUES (5, 'mike.brown@email.com', 10, 'Best book ever!');
 INSERT INTO Reviews (BookID, ClientEmail, Rating) VALUES (3, 'alex.jones@email.com', 9);
+INSERT INTO Reviews (BookID, ClientEmail, Rating, Comment) VALUES (18, 'mike.brown@email.com', 10, 'A terrible book!! Promotes LGBT! ');
 
 
 --ReviewsHistory Table
@@ -126,4 +164,4 @@ INSERT INTO ReviewsHistory (BookID, ClientEmail, ReviewTime, Rating, Comment) VA
 INSERT INTO ReviewsHistory (BookID, ClientEmail, ReviewTime, Rating, Comment) VALUES (1, 'john.doe@gmail.com', '2023-01-08 09:02:00', 1, 'Terrible!');
 INSERT INTO ReviewsHistory (BookID, ClientEmail, ReviewTime, Rating, Comment) VALUES (5, 'mike.brown@email.com', '2023-02-25 14:07:00', 9, 'Best book!');
 INSERT INTO ReviewsHistory (BookID, ClientEmail, ReviewTime, Rating) VALUES (3, 'alex.jones@email.com', '2023-03-30 12:10:00', 9);
-
+INSERT INTO ReviewsHistory (BookID, ClientEmail, ReviewTime, Rating, Comment) VALUES (18, 'mike.brown@email.com', '2023-03-12 19:15:00', 10, 'A terrible book!! Promotes LGBT! ');
