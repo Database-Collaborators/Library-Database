@@ -1,3 +1,5 @@
+SET SEARCH_PATH = Library;
+
 -- CRUD = Create, Read, Update, Delete
 
 
