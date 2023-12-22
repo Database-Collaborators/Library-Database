@@ -3,7 +3,7 @@ SET SEARCH_PATH = Library;
 
 -- Описание:
 -- при добавлении новой записи в таблицу Reviews, 
--- старая запись удаляется из Reviews (с той же книгой того де человека),
+-- старая запись удаляется из Reviews (с той же книгой того же человека),
 -- а также эта новая запись добавляется в ReviewsHistory
 
 CREATE OR REPLACE FUNCTION handle_reviews_insert()
