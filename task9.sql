@@ -16,6 +16,6 @@ END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER handle_reviews_insert_trigger
-AFTER INSERT ON Reviews
+BEFORE INSERT ON Reviews
 FOR EACH ROW
 EXECUTE FUNCTION handle_reviews_insert();
