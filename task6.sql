@@ -13,7 +13,7 @@ GROUP BY Clients.ClientEmail
 HAVING COUNT(ReviewsHistory.ClientEmail) >= 3
 ORDER BY NumberOfReviews DESC;
 -- Expected result:
---      mike.brown@email.com,   Mike,   Brown,  3
+--      mike.brown@email.com,   Mike,   Brown,  4
 --      john.doe@gmail.com,     John,   Doe,    3
 
 
@@ -32,8 +32,8 @@ ORDER BY NumberOfBorrowings DESC
 LIMIT 3;
 -- Expected result:
 --      1,  lisa.white@email.com,   ,       ,       4
---      2,  john.doe@gmail.com,     John,   Doe,    3
---      3,  alex.jones@email.com,   Alex,   Jones,  3
+--      2,  alex.jones@email.com,   Alex,   Jones,  3
+--      3,  john.doe@gmail.com,     John,   Doe,    3
 
 
 -- Выборка из 3 книг с наивысшим средним рейтингом --
@@ -47,9 +47,9 @@ GROUP BY Books.BookId
 ORDER BY Rank
 LIMIT 3;
 -- Expected result:
---      1,  Animal Farm,          10
---      2,  Pride and Prejudice,  9
---      3,  1984,                 8
+--      1,  Animal Farm,                10
+--      1,  A Summer in the Red Scarf,  10
+--      2,  Pride and Prejudice,        9
 
 
 -- Распределение отзывов клиентов по месяцам  --
@@ -62,11 +62,11 @@ GROUP BY ClientEmail, MonthYear
 ORDER BY ClientEmail, MonthYear;
 -- Expected result:
 --      alex.jones@email.com,   March     2023,     2
---      jane.smith@edu.hse.ru,  February  2023,     1
 --      john.doe@gmail.com,     January   2023,     3
 --      lisa.white@email.com,   April     2023,     2
 --      mike.brown@email.com,   August    2023,     1
 --      mike.brown@email.com,   February  2023,     1
+--      mike.brown@email.com,   March     2023,     1
 --      mike.brown@email.com,   May       2023,     1
 
 
@@ -111,7 +111,6 @@ JOIN Books B ON R.BookID = B.BookID
 WHERE R.Rank = 1;
 -- Expected result:
 --      Alex,   Jones,      Pride and Prejudice
---      ,       Smith,      War and Peace
 --      John,   Doe,        1984
 --      ,       ,           The Da Vinci Code
 --      Mike,   Brown,      Animal Farm
